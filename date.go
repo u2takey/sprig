@@ -94,6 +94,14 @@ func duration(sec interface{}) string {
 	return (time.Duration(n) * time.Second).String()
 }
 
+func parseDuration(d string) string {
+	a, err := time.ParseDuration(d)
+	if err != nil {
+		return err.Error()
+	}
+	return strconv.Itoa(int(a))
+}
+
 func durationRound(duration interface{}) string {
 	var d time.Duration
 	switch duration := duration.(type) {
